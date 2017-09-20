@@ -9,9 +9,9 @@ class CustomPostManager {
 
   /**
    * Default constructor. Initialises any member variables and sets the screen type.
-   * @$screens defaults to 'play_scripts' however
+   * @$screens defaults to 'playscripts' however
    */
-  public function __construct( $s = array ( 'play_scripts' ) )
+  public function __construct( $s = array ( 'playscripts' ) )
   {
     $this->screens = $s;
   }
@@ -23,9 +23,9 @@ class CustomPostManager {
    */
   public function hideMetaBoxes()
   {
-    remove_meta_box( 'pageparentdiv', 'play_scripts', 'side' );
+    remove_meta_box( 'pageparentdiv', 'playscripts', 'side' );
     // for some odd reason this doesn't always work. Very annoying.
-    remove_meta_box( 'postimagediv', 'play_scripts', 'side' );
+    remove_meta_box( 'postimagediv', 'playscripts', 'side' );
   }
 
   public function hideControlls() {
@@ -40,8 +40,8 @@ class CustomPostManager {
   function buildCustomPostWidgets()
   {
     // add_meta_box( $id, $title, $callback, $screen, $context, $priority, $callback_args );
-    add_meta_box( 'cover_image_meta_box', 'Add an Image', array($this,'selectImageMetaBox'), 'play_scripts', 'normal', 'high' );
-    add_meta_box( 'cover_sound_meta_box', 'Add a Sound', array($this,'selectSoundMetaBox'), 'play_scripts', 'normal', 'high' );
+    add_meta_box( 'cover_image_meta_box', 'Add an Image', array($this,'selectImageMetaBox'), 'playscripts', 'normal', 'high' );
+    add_meta_box( 'cover_sound_meta_box', 'Add a Sound', array($this,'selectSoundMetaBox'), 'playscripts', 'normal', 'high' );
   }
 
 

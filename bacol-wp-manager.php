@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: WP Manager.
+ * Plugin Name: BACOL
  * Plugin URI: http://lsri.nottingham.ac.uk
  * Description: Utils for Building a City of Literature
  * Version: 0.0.1
  * Author: Tom Sweeney
  * Author URI: http://www.magneticmule.com
- * License: GPL2.
+ * License: GPL2
  */
 
     /*  2015  Tom Sweeney  (email : skywriter@gmail.com)

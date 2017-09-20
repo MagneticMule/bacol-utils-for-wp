@@ -89,7 +89,7 @@ class PostManager {
      public function buildCustomPost()
      {
          $labels = array(
-            'name' => __( 'playscripts' ),
+            'name' => __( 'Play Scripts' ),
             'singular_name' => __( 'Play Script' ),
             'add_new' => ( 'Add New' ),
             'add_new_item' => ( 'Add New Play Script' ),
@@ -124,7 +124,7 @@ class PostManager {
             'rewrite' => array( 'slug' => 'playscripts' )
             );
 
-         register_post_type( 'play_scripts', $customPostArgs );
+         register_post_type( 'playscripts', $customPostArgs );
      }
 
     /**
@@ -134,7 +134,7 @@ class PostManager {
     function addPostToQuery($query) {
         if( is_home() && $query->is_main_query() )
         {
-            $query->set( 'play_scripts', 'page' );
+            $query->set( 'playscripts', 'post' );
         }
         return $query;
     }
