@@ -89,7 +89,7 @@ class PostManager {
      public function buildCustomPost()
      {
          $labels = array(
-            'name' => __( 'Play Scripts' ),
+            'name' => __( 'playscripts' ),
             'singular_name' => __( 'Play Script' ),
             'add_new' => ( 'Add New' ),
             'add_new_item' => ( 'Add New Play Script' ),
@@ -105,7 +105,7 @@ class PostManager {
          $customPostArgs = array(
             'labels' => $labels,
             'hierarchical' => true,
-            'description' => 'Play Scripts filterable by Student class',
+            'description' => 'Play Scripts',
             'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', 'page-attributes' ),
             'taxonomies' => array( 'classes' ),
             'public' => true,
