@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: BACOL WP Manager.
+ * Plugin Name: WP Manager.
  * Plugin URI: http://lsri.nottingham.ac.uk
  * Description: Utils for Building a City of Literature
  * Version: 0.0.1
@@ -28,30 +28,33 @@
 
         // This file is part of a Wordpress plugin so don't call it directly
         defined('ABSPATH') or die('This plugin cannot be accessed directly you silly goose!');
-        
+
         // protected $template_dir = plugin_dir_path((__FILE__).'templates/');
 
         // imports
-        require_once plugin_dir_path(__FILE__).'includes/bacol-custom-post-manager-loader.class.php';
-        require_once plugin_dir_path(__FILE__).'includes/bacol-custom-post-manager.class.php';
-        require_once plugin_dir_path(__FILE__).'includes/bacol-custom-roles.class.php';
-        require_once plugin_dir_path(__FILE__).'includes/bacol-menu-customizer.class.php';
+        require_once plugin_dir_path(__FILE__).'includes/custom-post-manager-loader.class.php';
+        require_once plugin_dir_path(__FILE__).'includes/custom-post-manager.class.php';
+        require_once plugin_dir_path(__FILE__).'includes/custom-roles.class.php';
+        require_once plugin_dir_path(__FILE__).'includes/custom-menu-manager.class.php';
 
-        function runbacolPost()
+        function run()
         {
-            
-            $bacolPostManager = new BacolPostManager();
-            $bacolPostManager->registerPostManager();
 
-            $bacolCustomPostManager = new BacolCustomPostManager();
-            $bacolCustomPostManager->registerCustomPost();
+            $postManager = new PostManager();
+            $postManager->registerPostManager();
 
-            $bacolMenuCustomizer = new BacolMenuCustomizer();
-            $bacolMenuCustomizer->modifyAdminMenu();
+            $customPostManager = new CustomPostManager();
+            $customPostManager->registerCustomPost();
 
-            $bacolRolesManager = new BacolRolesManager();
-            $bacolRolesManager->registerRoles();
+            $menuCustomizer = new MenuCustomizer();
+            $menuCustomizer->modifyAdminMenu();
+
+            $rolesManager = new RolesManager();
+            $rolesManager->registerRoles();
+
         }
 
-        runbacolPost();
+        run();
+
+
 

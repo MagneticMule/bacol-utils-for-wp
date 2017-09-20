@@ -1,6 +1,6 @@
 <?php
 
-class BacolCustomPostManager {
+class CustomPostManager {
 
   /**
    * The array of screen names that the custom widgets will appear on.
@@ -11,7 +11,7 @@ class BacolCustomPostManager {
    * Default constructor. Initialises any member variables and sets the screen type.
    * @$screens defaults to 'play_scripts' however
    */
-  public function __construct( $s = array ( 'play_scripts' ))
+  public function __construct( $s = array ( 'play_scripts' ) )
   {
     $this->screens = $s;
   }

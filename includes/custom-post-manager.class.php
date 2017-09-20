@@ -8,7 +8,7 @@
  */
 
 
-class BacolPostManager {
+class PostManager {
 
     /**
      * The custom taxonomy for this post object. Within the context of
@@ -33,14 +33,14 @@ class BacolPostManager {
      *
      * @var string
      */
-    protected $tag = 'BacolPostManager';
+    protected $tag = 'PostManager';
 
     /**
      * Friendly name used to identify the plugin.
      *
      * @var string
      */
-    protected $name = 'bacolpost';
+    protected $name = 'postutils';
 
     /**
      * Current version of the plugin.
@@ -112,7 +112,7 @@ class BacolPostManager {
             'show_ui' => true,
             'show_in_menu' => true,
             'menu_position' => 1,
-            'menu_icon' => 'dashicons-admin-post',
+            'menu_icon' => 'dashicons-format-aside',
             'show_in_nav_menus' => true,
             'publicly_queryable' => true,
             'exclude_from_search' => false,

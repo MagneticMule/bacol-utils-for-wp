@@ -1,6 +1,6 @@
 <?php
 
-class BacolRolesManager {
+class RolesManager {
 
 	public function __construct() {}
 
@@ -24,27 +24,41 @@ class BacolRolesManager {
 	* Add new roles pecific to the BACOL project
 	*
 	*/
-	public function addNewRoles() 
+	public function addNewRoles()
 	{
 		$wp_roles = new WP_Roles();
+
+		// student role assigned to students in each of the schools
 		$wp_roles->add_role( 'student', 'Student', array(
-			'read' => true, 
+			'read' => true,
+			'create_posts' => true,
+			'publish_posts' => true,
 			'edit_posts' => true,
+			'edit_published_pages' => true,
+			'edit_published_posts' => true,
 			'delete_posts' => false,
 		)
 		);
 
 		$wp_roles->add_role( 'teacher', 'Teacher', array(
-			'read' => true, 
+			'read' => true,
+			'create_posts' => true,
+			'publish_posts' => true,
 			'edit_posts' => true,
-			'delete_posts' => false,
+			'edit_published_pages' => true,
+			'edit_published_posts' => true,
+			'delete_posts' => true,
 		)
 		);
 
 		$wp_roles->add_role( 'researcher', 'Researcher', array(
-			'read' => true, 
+			'read' => true,
+			'create_posts' => true,
+			'publish_posts' => true,
 			'edit_posts' => true,
-			'delete_posts' => false,
+			'edit_published_pages' => true,
+			'edit_published_posts' => true,
+			'delete_posts' => true,
 		)
 		);
 	}
