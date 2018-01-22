@@ -21,7 +21,7 @@ class MenuCustomizer {
         // If it does then we can remove the innappopriate sections from the admin menu.
         if( in_array ( 'researcher', (array) $user->roles ) ) {
             // remove_menu_page( 'index.php' );                  //Dashboard
-            // remove_menu_page( 'edit.php' );                      //Posts
+            // remove_menu_page( 'edit.php' );                   //Posts
             // remove_menu_page( 'upload.php' );                 //Media
             // remove_menu_page( 'edit.php?post_type=page' );    //Pages
             // remove_menu_page( 'edit-comments.php' );          //Comments

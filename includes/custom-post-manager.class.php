@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Defines and created the custom post object for youlisten.media
+ * Defines and created the custom post object for Building a City of Literature
  *
  * @author Thomas Sweeney <magneticmule@gmail.com>
  *
@@ -58,19 +58,50 @@ class PostManager {
         $this->labels   = array();
     }
 
+    /**
+     * Rename the standard blog admin area from "Posts to " Group Blog".
+     * 
+     */
+    function changePostLabel()
+    {
+        global $menu;
+        global $submenu;
+        $menu[5][0] = 'News';
+        $submenu['edit.php'][5][0] = 'Grou Blog';
+        $submenu['edit.php'][10][0] = 'Add Post';
+        $submenu['edit.php'][16][0] = 'Post Tags';
+    }
+    function changePostObject()
+    {
+        global $wp_post_types;
+        $labels = &$wp_post_types['post']->labels;
+        $labels->name = 'Blog Post';
+        $labels->singular_name = 'Blog Post';
+        $labels->add_new = 'Add Blog Post';
+        $labels->add_new_item = 'Add Blog post';
+        $labels->edit_item = 'Edit Blog post';
+        $labels->new_item = 'Blog Post';
+        $labels->view_item = 'View Blog Posts';
+        $labels->search_items = 'Search Blog Posts';
+        $labels->not_found = 'No Blog Posts found';
+        $labels->not_found_in_trash = 'No Blog Posts found in Trash';
+        $labels->all_items = 'All Blog Posts';
+        $labels->menu_name = 'Blog Post';
+        $labels->name_admin_bar = 'Group Blog';
+    }
 
     /**
      * Our taxonomy will include classes that students
      * can be part of as well as activities that students can participate in.
      */
-    public function buildCustomTaxonomy()
+    public function buildPlayScriptTaxonomy()
     {
         register_taxonomy(
             'classes',
             'scripts',
             array(
                 'hierarchical' => true,
-                'label' => 'Classes',
+                'label' => 'Scripts',
                 'query_var' => true,
                 'rewrite' => array(
                     'slug' => 'classes',
@@ -84,9 +115,9 @@ class PostManager {
       * Defines an array of labels to pass to the custom post type
       *
       * @see register_post_type()
-      * @see https://codex.wordpress.org/Function_Reference/register_post_type.
-      **/
-     public function buildCustomPost()
+      * @link https://codex.wordpress.org/Function_Reference/register_post_type. 
+      */
+     public function buildPlayScriptPost()
      {
          $labels = array(
             'name' => __( 'Play Scripts' ),
@@ -139,15 +170,16 @@ class PostManager {
         return $query;
     }
 
-
     /**
      * The 'register_post_type' function needs to be called during the WP init phase of execution.
-     * note, when using this in a class based plugin we need to define the callback class "which is always $this" via an array.
-     **/
+     * note, when using this in a class based plugin we need to define the callback class 
+     * "which is always $this" as the first element of an array.
+     * @return null
+     */
     public function registerPostManager()
     {
-        // $this->taxonomy =
-        add_action( 'init', array($this, 'buildCustomPost' ));
-        add_action( 'init', array($this, 'buildCustomTaxonomy' ));
+        add_action('init', array($this, ''))
+        add_action( 'init', array($this, 'buildPlayScriptPost' ));
+        add_action( 'init', array($this, 'buildPlayScriptTaxonomy' ));
     }
 }
