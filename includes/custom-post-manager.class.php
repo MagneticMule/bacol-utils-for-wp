@@ -62,20 +62,21 @@ class PostManager {
      * Rename the standard blog admin area from "Posts to " Group Blog".
      * 
      */
-    function changePostLabel()
+    function changeBlogLabel()
     {
         global $menu;
         global $submenu;
-        $menu[5][0] = 'News';
-        $submenu['edit.php'][5][0] = 'Grou Blog';
+        $menu[5][0] = 'Blog';
+        $submenu['edit.php'][5][0] = 'All Posts';
         $submenu['edit.php'][10][0] = 'Add Post';
         $submenu['edit.php'][16][0] = 'Post Tags';
     }
-    function changePostObject()
+
+    function changeBlogObject()
     {
         global $wp_post_types;
         $labels = &$wp_post_types['post']->labels;
-        $labels->name = 'Blog Post';
+        $labels->name = 'Group Blog';
         $labels->singular_name = 'Blog Post';
         $labels->add_new = 'Add Blog Post';
         $labels->add_new_item = 'Add Blog post';
@@ -86,7 +87,7 @@ class PostManager {
         $labels->not_found = 'No Blog Posts found';
         $labels->not_found_in_trash = 'No Blog Posts found in Trash';
         $labels->all_items = 'All Blog Posts';
-        $labels->menu_name = 'Blog Post';
+        $labels->menu_name = 'Group Blog';
         $labels->name_admin_bar = 'Group Blog';
     }
 
@@ -94,7 +95,7 @@ class PostManager {
      * Our taxonomy will include classes that students
      * can be part of as well as activities that students can participate in.
      */
-    public function buildPlayScriptTaxonomy()
+    function buildPlayScriptTaxonomy()
     {
         register_taxonomy(
             'classes',
@@ -117,7 +118,7 @@ class PostManager {
       * @see register_post_type()
       * @link https://codex.wordpress.org/Function_Reference/register_post_type. 
       */
-     public function buildPlayScriptPost()
+    function buildPlayScriptPost()
      {
          $labels = array(
             'name' => __( 'Play Scripts' ),
@@ -178,8 +179,10 @@ class PostManager {
      */
     public function registerPostManager()
     {
-        add_action('init', array($this, ''))
-        add_action( 'init', array($this, 'buildPlayScriptPost' ));
-        add_action( 'init', array($this, 'buildPlayScriptTaxonomy' ));
+        
+        add_action( 'init', array($this, 'changeBlogLabel' ));
+        add_action( 'init', array($this, 'changeBlogObject' ));
+        // add_action( 'init', array($this, 'buildPlayScriptPost' ));
+        // add_action( 'init', array($this, 'buildPlayScriptTaxonomy' ));
     }
 }
