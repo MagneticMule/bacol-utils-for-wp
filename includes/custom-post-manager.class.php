@@ -120,7 +120,11 @@ class PostManager {
                     'slug' => 'genres',
                     'with_front' => true,
                     ),
+<<<<<<< HEAD
                 'show_admin_column' => true
+=======
+                'show_admib_column' => true
+>>>>>>> 744823a9c7cdb2c78c51565188211de1124766fc
                 )
             );
     }
