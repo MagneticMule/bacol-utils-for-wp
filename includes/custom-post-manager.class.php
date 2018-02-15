@@ -66,7 +66,7 @@ class PostManager {
     {
         global $menu;
         global $submenu;
-        $menu[5][0] = 'Blog';
+        $menu[2][0] = 'Blog';
         $submenu['edit.php'][5][0] = 'All Posts';
         $submenu['edit.php'][10][0] = 'Add Post';
         $submenu['edit.php'][16][0] = 'Post Tags';
@@ -92,8 +92,8 @@ class PostManager {
     }
 
     /**
-     * Our taxonomy will include classes that students
-     * can be part of as well as activities that students can participate in.
+     * Our taxonomy allows students and teachers to add specigic genres to each play script
+     * 
      */
     function buildPlayScriptTaxonomy()
     {
@@ -111,14 +111,14 @@ class PostManager {
 
         register_taxonomy(
             'genres',
-            'scripts',
+            'playscripts',
             array(
                 'hierarchical' => true,
                 'labels' => $labels,
                 'query_var' => true,
                 'rewrite' => array(
                     'slug' => 'genres',
-                    'with_front' => true,
+                    'with_front' => true
                     ),
                 'show_admin_column' => true
                 )
@@ -152,7 +152,7 @@ class PostManager {
             'hierarchical' => true,
             'description' => 'Play Scripts',
             'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'revisions', 'page-attributes' ),
-            'taxonomies' => array( 'classes' ),
+            'taxonomies' => array( 'genres' ),
             'public' => true,
             'show_ui' => true,
             'show_in_menu' => true,
