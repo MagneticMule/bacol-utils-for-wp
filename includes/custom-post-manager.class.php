@@ -97,17 +97,30 @@ class PostManager {
      */
     function buildPlayScriptTaxonomy()
     {
+        $labels = array(
+            'name'              => 'Story Genres',
+            'singular_name'     => 'Story Genre',
+            'search_items'      => 'Search All Story Genres',
+            'all_items'         => 'All Story Genres',
+            'edit_item'         => 'Edit Story Genre',
+            'update_item'       => 'Update Story Genre',
+            'add_new_item'      => 'Add New Story Genre',
+            'new_item_name'     => 'New Story Genre',
+            'menu_name'         => 'Story Genres'
+        );
+
         register_taxonomy(
-            'classes',
+            'genres',
             'scripts',
             array(
                 'hierarchical' => true,
-                'label' => 'Scripts',
+                'labels' => $labels,
                 'query_var' => true,
                 'rewrite' => array(
-                    'slug' => 'classes',
+                    'slug' => 'genres',
                     'with_front' => true,
                     ),
+                'show_admib_column' => true
                 )
             );
     }
@@ -182,7 +195,7 @@ class PostManager {
         
         add_action( 'init', array($this, 'changeBlogLabel' ));
         add_action( 'init', array($this, 'changeBlogObject' ));
-        // add_action( 'init', array($this, 'buildPlayScriptPost' ));
-        // add_action( 'init', array($this, 'buildPlayScriptTaxonomy' ));
+        add_action( 'init', array($this, 'buildPlayScriptPost' ));
+        add_action( 'init', array($this, 'buildPlayScriptTaxonomy' ));
     }
 }
