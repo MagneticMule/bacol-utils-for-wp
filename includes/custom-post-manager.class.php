@@ -136,10 +136,10 @@ class PostManager {
          $labels = array(
             'name' => __( 'Play Scripts' ),
             'singular_name' => __( 'Play Script' ),
-            'add_new' => ( 'Add New' ),
+            'add_new' => ( 'Add New Script' ),
             'add_new_item' => ( 'Add New Play Script' ),
-            'edit_item' => ( 'Edit Play Script' ),
-            'new_item' => ( 'New Play Script' ),
+            'edit_item' => ( 'Edit Script' ),
+            'new_item' => ( 'New Script' ),
             'view_item' => ( 'View Play Script' ),
             'not_found' => ( 'No Play Scripts found' ),
             'not_found_in_trash' => ( 'No Play Scripts found in Trash' ),
@@ -166,14 +166,58 @@ class PostManager {
             'can_export' => true,
             'rewrite' => true,
             'capability_type' => 'post',
-            'rewrite' => array( 'slug' => 'playscripts' )
+            'rewrite' => array( 'slug' => 'playscript' )
             );
 
-         register_post_type( 'playscripts', $customPostArgs );
+         register_post_type( 'playscript', $customPostArgs );
      }
 
+     /**
+      * Creates a help tab for the Play Script post type.
+      * @see add_help_tab()
+      * @link https://codex.wordpress.org/Class_Reference/WP_Screen/add_help_tab
+      */
+      function addPlayScriptHelpTab() {
+        $screen = get_current_screen();
+        $screenIds = array( 'edit-playscript', 'playscript' );
+
+    if ( ! in_array( $screen->id, $screenIds ) ) {
+        return;
+    }
+
+    $screen->add_help_tab(
+        array(
+            'id'      => 'sp_overview',
+            'title'   => 'Overview',
+            'content' => '<p>The </p>'
+        )
+    );
+
+    $screen->add_help_tab(
+        array(
+            'id'      => 'sp_video',
+            'title'   => 'Video',
+            'content' => '<iframe width="720" height="405" src="https://www.youtube.com/embed/Avcp4m6BkLQ?rel=0" frameborder="1" allow="autoplay; encrypted-media" allowfullscreen style="padding:20px 0 0 20px;"></iframe>'
+        )
+    );
+
+
+    $screen->add_help_tab(
+        array(
+            'id'      => 'sp_support',
+            'title'   => 'Support',
+            'content' => '<p>If you get really stuck, email Tommy at skywriter@gmail.com</p>'
+        )
+    );
+
+
+    // Add a sidebar to contextual help.
+    $screen->set_help_sidebar( 'This is the content you will be adding to the sidebar.' );
+
+    }
+
     /**
-     * [addPostToQuery description]
+     * 
      * @param [type] $query [description]
      */
     function addPostToQuery($query) {
@@ -191,11 +235,12 @@ class PostManager {
      * @return null
      */
     public function registerPostManager()
-    {
-        
+    {      
         add_action( 'init', array($this, 'changeBlogLabel' ));
         add_action( 'init', array($this, 'changeBlogObject' ));
         add_action( 'init', array($this, 'buildPlayScriptPost' ));
         add_action( 'init', array($this, 'buildPlayScriptTaxonomy' ));
+        add_action( "load-edit.php", array($this, 'addPlayScriptHelpTab' ));
+        add_action( "load-post.php", array($this, 'addPlayScriptHelpTab' ));
     }
 }
