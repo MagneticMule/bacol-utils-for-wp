@@ -214,9 +214,9 @@ class PostManager {
 
 
     // Add a sidebar to contextual help.
-    /* $screen->set_help_sidebar( 'This is the content you will be adding to the sidebar.' );
+    // $screen->set_help_sidebar( 'For further help on Wordpress go to ' );
 
-    } */
+    }
 
     /**
      * 
