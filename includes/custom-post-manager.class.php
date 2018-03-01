@@ -189,7 +189,9 @@ class PostManager {
         array(
             'id'      => 'sp_overview',
             'title'   => 'Overview',
-            'content' => '<p>The </p>'
+            'content' => '<p>You can add the contents of a new PlayScript by either pasting in preformatted text from
+            a word processor or by using the built in word processor here. Either way, you can edit the text here using the tools
+            provided.</p>'
         )
     );
 
@@ -212,9 +214,9 @@ class PostManager {
 
 
     // Add a sidebar to contextual help.
-    $screen->set_help_sidebar( 'This is the content you will be adding to the sidebar.' );
+    /* $screen->set_help_sidebar( 'This is the content you will be adding to the sidebar.' );
 
-    }
+    } */
 
     /**
      * 
