@@ -101,12 +101,12 @@ class CustomPostManager {
    */
   public function registerCustomPost()
   {
-    // add_action('do_meta_boxes', array($this,'hideMetaBoxes' ));
-    // add_action('admin_head', array($this,'hideControlls' ));
-    // add_action('admin_init', array($this, 'buildCustomPostWidgets'));
-    // add_action('the_post', array($this, 'setFeaturedImage' ));
-    // add_action('save_post', array($this, 'setFeaturedImage' ));
-    // add_action('draft_to_publish', array($this, 'setFeaturedImage' ));
+    add_action('do_meta_boxes', array($this,'hideMetaBoxes' ));
+    add_action('admin_head', array($this,'hideControlls' ));
+    add_action('admin_init', array($this, 'buildCustomPostWidgets'));
+    add_action('the_post', array($this, 'setFeaturedImage' ));
+    add_action('save_post', array($this, 'setFeaturedImage' ));
+    add_action('draft_to_publish', array($this, 'setFeaturedImage' ));
   }
 
 
