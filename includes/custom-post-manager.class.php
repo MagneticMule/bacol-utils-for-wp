@@ -166,10 +166,10 @@ class PostManager {
             'can_export' => true,
             'rewrite' => true,
             'capability_type' => 'post',
-            'rewrite' => array( 'slug' => 'playscript' )
+            'rewrite' => array( 'slug' => 'playscripts' )
             );
 
-         register_post_type( 'playscript', $customPostArgs );
+         register_post_type( 'playscripts', $customPostArgs );
      }
 
      /**
@@ -179,7 +179,7 @@ class PostManager {
       */
       function addPlayScriptHelpTab() {
         $screen = get_current_screen();
-        $screenIds = array( 'edit-playscript', 'playscript' );
+        $screenIds = array( 'edit-playscripts', 'playscripts' );
 
     if ( ! in_array( $screen->id, $screenIds ) ) {
         return;
