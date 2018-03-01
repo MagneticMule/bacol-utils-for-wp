@@ -223,7 +223,7 @@ class PostManager {
     function addPostToQuery($query) {
         if( is_home() && $query->is_main_query() )
         {
-            $query->set( 'playscript', 'post' );
+            $query->set( 'playscripts', 'post' );
         }
         return $query;
     }
