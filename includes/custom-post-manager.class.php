@@ -206,7 +206,7 @@ class PostManager {
         array(
             'id'      => 'sp_support',
             'title'   => 'Support',
-            'content' => '<p>If you get really stuck, email Tommy at skywriter@gmail.com</p>'
+            'content' => '<p>If you get really stuck, email Tommy at <a href="mailto:skywriter@gmail.com">skywriter@gmail.com</a></p>'
         )
     );
 
