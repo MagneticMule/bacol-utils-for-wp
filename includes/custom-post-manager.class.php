@@ -241,11 +241,11 @@ class PostManager
      */
     public function registerPostManager()
     {
-        add_action('init', array($this, 'changeBlogLabel'));
-        add_action('init', array($this, 'changeBlogObject'));
+        // add_action('init', array($this, 'changeBlogLabel'));
+        // add_action('init', array($this, 'changeBlogObject'));
         add_action('init', array($this, 'buildPlayScriptPost'));
         add_action('init', array($this, 'buildPlayScriptTaxonomy'));
-        add_action("load-edit.php", array($this, 'addPlayScriptHelpTab'));
-        add_action("load-post.php", array($this, 'addPlayScriptHelpTab'));
+        // add_action("load-edit.php", array($this, 'addPlayScriptHelpTab'));
+        // add_action("load-post.php", array($this, 'addPlayScriptHelpTab'));
     }
 }
